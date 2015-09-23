@@ -1,0 +1,23 @@
+{
+    "log": "log.txt",
+    "tasks": [
+	{
+	    "name": "photomaton",
+	    "source": "/home/rossetd0/Desktop/CONA/source",
+	    "timeWriteMilli": 2000,
+	    "idleWaitMilli": 1000,
+	    "threads": 4,
+	    "blockSize": 16,
+	    "destinations": [
+		{ "target": "/home/rossetd0/Desktop/CONA/dest/thumb",
+		  "masks": "/home/rossetd0/Desktop/CONA/masks/thumb",
+		  "jpegCompression": 50
+		},
+		{ "target": "/home/rossetd0/Desktop/CONA/dest/1600",
+		  "masks": "/home/rossetd0/Desktop/CONA/masks/1600",
+		  "jpegCompression": 85
+		}
+	    ]
+	}
+    ]
+}
