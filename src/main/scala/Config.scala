@@ -36,4 +36,8 @@ object TaskConfig {
 
 object Config {
   implicit val reader: Reads[Config] = Json.reads[Config]
+  def read(path: Path): Config = {
+    val bytes = Files.readAllBytes(path)
+    Json.parse(bytes).validate[Config].fold(errs => sys.error(errs.toString), identity)
+  }
 }
