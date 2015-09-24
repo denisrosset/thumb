@@ -2,19 +2,19 @@
     "log": "log.txt",
     "tasks": [
 	{
-	    "name": "photomaton",
-	    "source": "/home/rossetd0/Desktop/CONA/source",
+	    "name": "sample_task",
+	    "source": "test_source",
 	    "timeWriteMilli": 2000,
 	    "idleWaitMilli": 1000,
 	    "threads": 4,
-	    "blockSize": 16,
+	    "batchSize": 16,
 	    "destinations": [
-		{ "target": "/home/rossetd0/Desktop/CONA/dest/thumb",
-		  "masks": "/home/rossetd0/Desktop/CONA/masks/thumb",
+		{ "target": "test_thumb",
+		  "masks": "test_masks/thumb",
 		  "jpegCompression": 50
 		},
-		{ "target": "/home/rossetd0/Desktop/CONA/dest/1600",
-		  "masks": "/home/rossetd0/Desktop/CONA/masks/1600",
+		{ "target": "test_1600",
+		  "masks": "test_masks/1600",
 		  "jpegCompression": 85
 		}
 	    ]
