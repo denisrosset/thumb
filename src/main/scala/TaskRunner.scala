@@ -126,6 +126,7 @@ case class TaskRunner(config: TaskConfig) {
         processInParallel(toProcess)
       } else Thread.sleep(config.idleWaitMilli) // if no new files, sleep for a while
     }
+    watchService.close
     println(s"$taskName: finished gracefully")
   }
 }
