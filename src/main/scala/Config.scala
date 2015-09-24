@@ -5,6 +5,7 @@ import java.nio.file._
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
 
+import JsonHelpers.absolutePathReader
 case class DestinationConfig(
   target: Path, /** Target folder where to put the resized/composited images */
   masks: Path, /** Folder where the PNG masks are located */

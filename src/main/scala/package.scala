@@ -8,12 +8,14 @@ import com.sksamuel.scrimage.Image
 import scala.collection.mutable.{Map => MutableMap, PriorityQueue}
 
 package object thumbthumb {
-  /** Reads a JSON string as a java Path */
-  implicit val pathReader: Reads[Path] = new Reads[Path] {
-    def reads(json: JsValue): JsResult[Path] = json.validate[String].flatMap { str =>
-      Option(Paths.get(str)) match {
-        case Some(path) => JsSuccess(path)
-        case None => JsError(s"Invalid path: $str")
+  object JsonHelpers {
+    /** Reads a JSON string as a java Path, makes it absolute */
+    implicit val absolutePathReader: Reads[Path] = new Reads[Path] {
+      def reads(json: JsValue): JsResult[Path] = json.validate[String].flatMap { str =>
+        Option(Paths.get(str)) match {
+          case Some(path) => JsSuccess(path.toAbsolutePath)
+          case None => JsError(s"Invalid path: $str")
+        }
       }
     }
   }
