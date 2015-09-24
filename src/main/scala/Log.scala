@@ -5,6 +5,9 @@ import java.nio.file._
 import java.text.SimpleDateFormat
 import java.util.Date
 
+/** Helper class to display log messages, and append them in a log file.
+  * 
+  * Is passed around methods as an implicit, to avoid boilerplate. */
 class Log(display: Boolean = true, logfile: Option[File] = None) {
   val format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
   def apply(string: String): Unit = {
